@@ -1,0 +1,284 @@
+body {
+  margin: 0;
+  font-family: 'Quicksand', sans-serif;
+}
+
+nav {
+  width: 91vw;
+  height: 74px;
+  background: #fff;
+  position: fixed;
+  padding: 0 1em;
+  display: flex;
+  top: 0;
+  justify-content: flex-start;
+}
+
+img {
+  width: 100%;
+}
+
+button:focus {
+  background: paleturquoise;
+}
+
+.im {
+  display: flex;
+  align-items: center;
+  margin: 0 0.5em;
+  cursor: pointer;
+  color: #000;
+}
+
+.container {
+  height: 100vh;
+  background: #EEF2F7;
+}
+
+.sidebar {
+  position: fixed;
+  height: 100vh;
+  width: 70%;
+  top: 0;
+  right: 0;
+  background: #fff;
+  border: 1px solid rgb(230, 230, 230);
+  display: none;
+  flex-flow: column nowrap;
+  border-top-width: 0px;
+  transition: width 2s;
+}
+
+.user-profile {
+  padding: 0.5em 2em;
+}
+
+.user-display-name {
+  text-align: center;
+  border-bottom: 1px solid rgb(187 187 187);
+  color: #000;
+}
+
+.user-list {
+  display: flex;
+  justify-content: center;
+  border-bottom: 1px solid rgb(187 187 187);
+  /*background: #ffffff;*/
+  /*color: #000000;*/
+  padding: 0.5em;
+}
+
+.user-info {
+}
+
+#profilePic {
+  width: 100%;
+  border-radius: 50%;
+  height: 200px;
+}
+
+.paperplane {
+  position: fixed;
+  height: 300px;
+  background: #ffffff;
+  margin: 0 0.9em;
+  margin-top: 80px;
+  display: none;
+  flex-flow: column nowrap;
+  justify-content: space-between;
+}
+
+.chat {
+  display: flex;
+}
+
+.users {
+  width: 50%;
+  background: #ebebeb;
+  overflow-y: scroll;
+  height: 230px;
+  display: none;
+}
+
+.user-name {
+  padding: 0.5em;
+  color: #000000;
+  cursor: pointer;
+  width: 100%;
+  border: 1px solid transparent;
+}
+
+.user-name:hover {
+  background: greenyellow;
+}
+
+.user-name:focus {
+  background: #000000;
+  outline: 1px solid transparent;
+  color: #ffffff;
+}
+
+.user-name:hover {
+  background: #000000;
+  outline: 1px solid transparent;
+  color: #ffffff;
+}
+
+.active {
+  background: #000000;
+  color: #ffffff;
+}
+
+.chat-form {
+  display: flex;
+  justify-content: space-around;
+  padding: 1em;
+  border-top: 1px solid rgb(185 185 185);
+}
+
+#message {
+  width: 100%;
+  margin: 0.5em;
+  background: transparent;
+  border: 1px solid transparent;
+  border-bottom: 1px solid black;
+}
+
+#message:focus {
+  outline: 1px solid transparent
+}
+
+#sendBtn {
+  background: black;
+  color: #ffffff;
+  padding: 0.5em 1em;
+  border: 1px solid rgb(0 0 0);
+  border-radius: 4px;
+}
+
+.chat-content {
+  background: #ffffff;
+  width: 100%;
+  height: 230px;
+  overflow-y: scroll;
+  word-break: break-word;
+}
+
+.button {
+  position: absolute;
+  margin: 0;
+  border-radius: 4px;
+  background: rgb(255, 255, 255);
+  padding: 0.2em;
+}
+
+.sender {
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+.reciever {
+  display: flex;
+  justify-content: flex-end;
+  flex-flow: row nowrap;
+}
+
+.stopper {
+  width: 30px;
+}
+
+.msg {
+  border-bottom: 1px solid black;
+  margin: 0.5em 0.5em 1em 2.1em;
+  background: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
+  padding: 0.5em;
+  border-radius: 3px;
+}
+
+.app {
+  padding: 6em 0.3em 1em 0.3em; 
+  /*background: #EEF2F7;*/
+  background: #fff;
+}
+
+.post {
+  width: 100%;
+  background: #fff;
+  color: #000;
+  border-radius: 4px;
+  /*border: 1px solid rgb(230, 230, 230);*/
+  margin-bottom: 1.7em;
+  box-shadow: 0 4px 23px 5px rgb(255 255 255), 0 2px 6px rgb(0 0 0);
+}
+
+.profile {
+  display: flex;
+  justify-content: space-between;
+}
+
+.profile-section {
+  display: flex;
+  padding: 0.5em;
+}
+
+.displayName {
+  display: flex;
+  align-items: center;
+}
+
+.profile-pic {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin: 0 0.5em;
+}
+
+.reaction {
+  display: flex;
+  justify-content: space-around;
+  padding: 1em 0.5em;
+}
+
+.uploadPost {
+  width: 100%;
+  display: none;
+  height: 400px;
+  background: rgb(128 203 196);
+  z-index: 1;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  flex-flow: column nowrap;
+}
+
+.title {
+  padding: 1em 0.5em;
+  background: #57c2bd;
+  display: flex;
+  font-weight: 700;
+  justify-content: center;
+  border-bottom: 1px solid rgb(4 165 173);
+}
+
+canvas {
+  height: 150px;
+  background: transparent;
+}
+
+.row {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  justify-content: center;
+}
+
+#postPicBtn {
+  padding: 0.7em 1.4em;
+  background: #000000;
+  border: 1px hidden;   
+  border-radius: 4px;
+  color: #ffffff;
+}
