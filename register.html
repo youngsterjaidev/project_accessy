@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+        <link rel="preconnect" href="https://fonts.gstatic.com"/>
+        <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono:wght@700&display=swap" rel="stylesheet"/>
+        <link rel="stylesheet" href="/css/register.css"/>
+        <link rel="stylesheet" href="https://cdn.iconmonstr.com/1.3.0/css/iconmonstr-iconic-font.min.css"/>
+        <title>Static Template</title>
+    </head>
+    <body>
+        <div class="navigation">
+            <a href="" class="im im-angle-left"></a>
+            <b>Event Name</b>
+            <a href="" class="im im-question"></a>
+        </div>
+        <div class="container">
+            <div id="event">
+                <div class="feedback">
+                    <h4 id="eventFeedback">Register Yourself To and Event ❤</h4>
+                    <div class="scan-section">
+                        <button type="button" class="btn" id="cameraBtn">Scan QrCode
+            </button>
+                    </div>
+                    <!--<h4>Or</h4>-->
+                </div>
+                <form id="eventForm">
+                    <div class="form-group">
+                        <input type="text" name="name" id="candidateName" placeholder="Enter Your Name"/>
+                    </div>
+                    <div class="form-group">
+                        <input type="tel" name="phone" id="candidatePhone" placeholder="Enter your Phone Number"/>
+                    </div>
+                    <div class="form-group" style="text-align: center;">
+                        <button type="submit" class="btn" id="registerBtn">Register</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <script src="https://www.gstatic.com/firebasejs/7.21.0/firebase-app.js"></script>
+        <!-- TODO: Add SDKs for Firebase products that you want to use
+   https://firebase.google.com/docs/web/setup#available-libraries -->
+        <script src="https://www.gstatic.com/firebasejs/7.21.0/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.21.0/firebase-firestore.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.21.0/firebase-database.js"></script>
+        <script src="js/init.js"></script>
+        <script src="js/register.js"></script>
+    </body>
+</html>

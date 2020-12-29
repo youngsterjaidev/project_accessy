@@ -1,145 +1,244 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-
-    <link rel="manifest" href="manifest.json">
-
-    <link rel="stylesheet" href="https://cdn.iconmonstr.com/1.3.0/css/iconmonstr-iconic-font.min.css">
-
-    <link href="https://fonts.googleapis.com/css2?family=Kufam:wght@500&family=Quicksand:wght@500&display=swap" rel="stylesheet">
-
-    <link rel="stylesheet" href="css/main.css">
-
-    <!-- The core Firebase JS SDK is always required and must be listed first -->
-    <script src="https://www.gstatic.com/firebasejs/7.21.0/firebase-app.js"></script>
-
-    <!-- TODO: Add SDKs for Firebase products that you want to use
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <meta name="Description" content="The Social Networking site for uploading images and chat with others people out there and help people to interact with one another.">
+        <link rel="stylesheet" href="https://cdn.iconmonstr.com/1.3.0/css/iconmonstr-iconic-font.min.css">
+        <link rel="manifest" href="manifest.json">
+        <link href="https://fonts.googleapis.com/css2?family=Kufam:wght@500&family=Quicksand:wght@500&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="css/page.css">
+        <link rel="icon" href="images/Untitled.png">
+        <!-- The core Firebase JS SDK is always required and must be listed first -->
+        <script src="https://www.gstatic.com/firebasejs/7.21.0/firebase-app.js"></script>
+        <!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#available-libraries -->
-    <script src="https://www.gstatic.com/firebasejs/7.21.0/firebase-auth.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.21.0/firebase-firestore.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.21.0/firebase-database.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.21.0/firebase-storage.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/7.21.0/firebase-messaging.js"></script>
-    <script src="js/init.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.21.0/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.21.0/firebase-firestore.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.21.0/firebase-storage.js" defer></script>
+        <script src="https://www.gstatic.com/firebasejs/7.21.0/firebase-messaging.js" defer></script>
+        <script src="js/init.js"></script>
+        <title>The Accessy</title>
+    </head>
+    <body>
+        <nav>
+            <a class="im im-menu" id="toggleSidebar"></a>
+            <a class="im im-paperplane" id="togglePaperplane"></a>
+            <a href="eventList.html" class="im im-calendar"></a>
+            <a class="im im-photo-camera" id="uploadBtn"></a>
+            <div class="install-banner hidden" style="display: none;">
+                <a class="im im-download" style="border-radius: 4px;background: #551a8b;color: #fff;" id="installAppBtn"></a>
+            </div>
+        </nav>
+        <div class="container">
+            <div class="sidebar">
+                <div class="user-profile">
+                    <img src="" id="profilePic" alt="">
+                </div>
+                <div>
+                    <div class="user-display-name">
+                        <h2 style="margin: 0.2em;" id="userDisplayName">charlie</h2>
+                        <h4 style="margin: 0 0.2em 0.5em 0; padding: 0.5em;">Hi, I am Test. We love Websites, If You Want To Work With Me. You Can Join :)</h4>
+                    </div>
+                    <div class="user-list">
+                        <i href="" style="font-size: 28px; padding: 0.2em;" class="im im-picture-o "></i>
+                        <i href="" style="font-size: 28px; padding: 0.2em" class="im im-users "></i>
+                        <i href="" style="font-size: 28px; padding: 0.2em;" class="im im-gear "></i>
+                        <a class="im im-sign-out" id="logout"></a>
+                    </div>
+                    <div class="install-banner" style="display: none;padding: 1em;justify-content: space-between;background: black;color: #fff;">
+                        <div>Install App </div>
+                        <div>
+                            <i class="im im-download installAppBtn"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="paperplane">
+                <div class="chat">
+                    <div class="users">
+                        <div style="display: flex; justify-content: center;" id="usersLoader">
+                            <div class="loader"></div>
+                        </div>
+                    </div>
+                    <div class="chat-content">
+                        <div class="pallet">
+                            <i class="im im-angle-right button" id="toggleUsers"></i>
+                            <i class="im im-x-mark button" id="closeChat"></i>
+                        </div>
+                        <!--<div class="pallet">Test</div>-->
+                        <div class="message-content">
+                            <div class="sender">
+                                <div class="msg">Talk To anyone :)</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <form class="chat-form" id="chatForm">
+                    <input type="text" id="message" style="margin: 0em 1em;" autocomplete="off" placeholder="Send Message..">
+                    <button type="submit" class="im im-paperplane" id="sendBtn"></button>
+                </form>
+                <div style="background-color: #fff; text-align: center; padding: 1em;">Accessy is on Fire</div>
+            </div>
+            <div class="app">
+                <div class="post">
+                    <div class="profile">
+                        <div class="profile-section">
+                            <img src="https://images.pexels.com/photos/3393705/pexels-photo-3393705.jpeg?cs=srgb&dl=pexels-maryia-plashchynskaya-3393705.jpg&fm=jpg" alt="" class="profile-pic">
+                            <div class="displayName">Ram</div>
+                        </div>
+                        <i class="im im-menu-dot-v"></i>
+                    </div>
+                    <img src="https://images.pexels.com/photos/3651821/pexels-photo-3651821.jpeg?cs=srgb&dl=pexels-luca-nardone-3651821.jpg&fm=jpg" alt="" class="post-pic">
+                    <div class="desc">
+                        <div style="padding: 1em 0em; font-weight: 700;">45 likes</div>
+                        <div class="">Diamonds shinin lookin like I robbed Liberace</div>
+                    </div>
+                    <div class="reaction">
+                        <i class="im im-heart"></i>
+                        <i class="im im-barcode"></i>
+                        <i class="im im-menu-dot-h"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="upload">
+            <div class="upload-post">
+                <div class="pallet" style="background: #eef2f7; justify-content: flex-end;">
+                    <i class="im im-x-mark button" id="closeUpload"></i>
+                </div>
+                <div>
+                    <canvas id="c"></canvas>
+                    <div class="switch">
+                        <button type="button" class="btn" id="switchBtn">Post</button>
+                    </div>
+                </div>
+                <form id="postForm">
+                    <div class="form-group" required>
+                        <input type="file" id="file" accept="image/*"/>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" placeholder="Gave Some Title... blah blah" id="titleName" required/>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" placeholder="Gave Some Caption... blah blah" id="titleCaption" required/>
+                    </div>
+                    <div class="form-group" style="
+            display: flex;
+            justify-content: center;
+            flex-flow: column nowrap;
+          ">
+                        <div class="feedback" id="postFeedback">
+                            <h3>You are best !</h3>
+                        </div>
+                        <button type="submit" class="btn" id="uploadPicBtn">Upload a Pic</button>
+                    </div>
+                </form>
+                <form id="fileForm">
+                    <div class="form-group" required>
+                        <input type="file" id="photo" accept="image/*"/>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" placeholder="Event Name..." id="eventName" required/>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" placeholder="Event Description" id="eventDesc" required/>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" placeholder="Place where event is going on..." id="eventPlace" required/>
+                    </div>
+                    <div class="form-group">
+                        <input type="text" placeholder="Event is Supervised under.." id="eventCoordinate" required/>
+                    </div>
+                    <div class="form-group">
+                        <label for="startAt">Start At</label>
+                        <input type="datetime-local" id="startAt"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="endAt">End At</label>
+                        <input type="datetime-local" id="endAt"/>
+                    </div>
+                    <div class="form-group" style="
+            display: flex;
+            justify-content: center;
+            flex-flow: column nowrap;
+          ">
+                        <div class="feedback" id="fileFeedback">
+                            <h3>Life is Good 😊</h3>
+                        </div>
+                        <button type="submit" class="btn" id="postEventBtn">Post An Event</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="register">
+            <div class="register-event">
+                <div class="pallet" style="justify-content: flex-end;">
+                    <i class="im im-x-mark" style="display: block;" id="closeRegister"></i>
+                </div>
+                <div class="register-body">
+                    <div class="register-content">
+                        <div class="loader"></div>
+                        <form>
+                            <div class="form-group">
+                                <label for=""></label>
+                                <input type="text" style="background-color: #f5feff;" placeholder="Kuch bhii">
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="js/db-final.js"></script>
+        <script src="js/page.js"></script>
+        <script>
+            window.addEventListener('DOMContentLoaded', ()=>{
+                if ('serviceWorker'in navigator) {
+                    navigator.serviceWorker.register('service-worker.js').then(reg=>{
+                        console.log('Service Worker is Registered', reg)
+                    }
+                    ).catch(e=>{
+                        console.log('Error While Registering Service Worker', e)
+                    }
+                    )
+                }
+            }
+            )
+        </script>
+        <script>
+            let btnInstall = document.querySelector('#installAppBtn')
+            let installBanner = document.querySelector('.install-banner')
+            window.addEventListener('beforeinstallprompt', e=>{
+                console.log('before_install_prompt', e)
 
-    <title>Static Template</title>
-  </head>
-  <body>
-    <div class="container">
-      <nav>
-        <a class="im im-menu" id="toggleSidebar"></a>
-        <a class="im im-paperplane" id="togglePaperplane"></a>
-        <a class="im im-calendar"></a>
-        <a class="im im-photo-camera" id="uploadBtn"></a>
-        <a class="im im-plus"></a>
-      </nav>
-      <div class="sidebar">
-        <div class="user-profile">
-          <img src="" id="profilePic" alt="">
-        </div>
-        <div>
-          <div class="user-display-name">
-            <h1 style="margin: 0.2em;" id="userDisplayName">charlie</h1>
-            <h3 style="margin: 0 0.2em 0.5em 0;">Hi, I am Test. We love Websites, If You Want To Work With Me. You Can Join :)</h3>
-          </div>
-          <div class="user-list">
-            <i href="" style="font-size: 28px;" class="im im-picture-o "></i>
-            <i href="" style="font-size: 28px;" class="im im-users "></i>
-            <i href="" style="font-size: 28px;" class="im im-gear "></i>
-            <a class="im im-sign-out" id="logout"></a>
-          </div>
-        </div>
-      </div>
-      <div class="paperplane">
-        <div class="chat">
-          <div class="users">
-          </div>
-          <div class="chat-content">
-            <i class="im im-angle-right button" id="toggleUsers">empty</i>
-            <div class="message-content"></div>
-          </div>
-        </div>
-        <form class="chat-form" id="chatForm">
-          <input type="text" id="message" autocomplete="off">
-          <button type="submit" class="im im-paperplane" id="sendBtn"></button>
-        </form>
-      </div>
-      <div class="app">
-        <div class="post">
-          <div class="profile">
-            <div class="profile-section">
-              <img src="https://images.pexels.com/photos/3393705/pexels-photo-3393705.jpeg?cs=srgb&dl=pexels-maryia-plashchynskaya-3393705.jpg&fm=jpg" alt="" class="profile-pic">
-              <div class="displayName">Ram</div>
-            </div>
-            <i class="im im-menu-dot-v"></i>
-          </div>
-          <img src="https://images.pexels.com/photos/3651821/pexels-photo-3651821.jpeg?cs=srgb&dl=pexels-luca-nardone-3651821.jpg&fm=jpg" alt="" class="post-pic">
-          <div class="reaction">
-            <i class="im im-heart"></i>
-            <i class="im im-barcode"></i>
-            <i class="im im-menu-dot-h"></i>
-          </div>
-        </div>
-        <div class="post">
-          <div class="profile">
-            <div class="profile-section">
-              <img src="https://images.pexels.com/photos/3393705/pexels-photo-3393705.jpeg?cs=srgb&dl=pexels-maryia-plashchynskaya-3393705.jpg&fm=jpg" alt="" class="profile-pic">
-              <div class="displayName">Shyan</div>
-            </div>
-            <i class="im im-menu-dot-v"></i>
-          </div>
-          <img src="https://images.pexels.com/photos/1689278/pexels-photo-1689278.jpeg?cs=srgb&dl=pexels-adonyi-g%C3%A1bor-1689278.jpg&fm=jpg" alt="" class="post-pic">
-          <div class="reaction">
-            <i class="im im-heart"></i>
-            <i class="im im-barcode"></i>
-            <i class="im im-menu-dot-h"></i>
-          </div>
-        </div>
-        <div class="post">
-          <div class="profile">
-            <div class="profile-section">
-              <img src="https://images.pexels.com/photos/3393705/pexels-photo-3393705.jpeg?cs=srgb&dl=pexels-maryia-plashchynskaya-3393705.jpg&fm=jpg" alt="" class="profile-pic">
-              <div class="displayName">Rita</div>
-            </div>
-            <i class="im im-menu-dot-v"></i>
-          </div>
-          <img src="https://images.pexels.com/photos/3112898/pexels-photo-3112898.jpeg?cs=srgb&dl=pexels-disha-sheta-3112898.jpg&fm=jpg" alt="" class="post-pic">
-          <div class="reaction">
-            <i class="im im-heart"></i>
-            <i class="im im-barcode"></i>
-            <i class="im im-menu-dot-h"></i>
-          </div>
-        </div>
-      </div>
-      <form id="fileForm" class="uploadPost">
-          <div class="title">Post a Pic</div>
-          <div class="row">
-            <canvas id="c"></canvas>
-            <div>
-              <div class="form-group">
-                <input type="file" id="file">
-              </div>
-            </div>
-          </div>
-          <div class="row" style="padding: 1em 0.5em; background: #57c2bd;border-top: 1px solid rgb(4 165 173);">
-            <button type="submit" id="postPicBtn">Post</button>
-          </div>
-      </form>
-    </div>
-    <script src="js/db-final.js"></script>
-    <script src="js/main.js"></script>
-    <script>
-      if('serviceWorker' in  navigator) {
-        navigator.serviceWorker.register('service-worker.js')
-        .then(r => {
-          console.log('Service Worker is registerd', r)
-        }).catch(e => {
-          console.log('Error Occured', e)
-        })
-      }
-    </script>
-  </body>
+                window.deferredPrompt = e
+
+                installBanner.style.display = 'inline-block'
+            }
+            )
+
+            btnInstall.addEventListener('click', event=>{
+                console.log('Btn is clicked !')
+
+                let deferredPrompt = window.deferredPrompt
+
+                deferredPrompt.prompt()
+
+                deferredPrompt.userChoice.then((result)=>{
+                    window.deferredPrompt = null
+                    installBanner.style.display = 'none'
+                }
+                )
+            }
+            )
+
+            let displayMode = 'browser tab'
+            if(window.matchMedia('(display-mode: standalone)').matches) {
+                    displayMode = 'standaone'
+            }
+
+            console.log('display_mode', displayMode)
+        </script>
+    </body>
 </html>

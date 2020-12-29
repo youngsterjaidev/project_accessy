@@ -41,24 +41,17 @@ toggleSignInBtn.addEventListener('click', e => {
 })
 
 document.querySelector('#signUpForm').addEventListener('submit', event => {
+  //document.querySelector('.loader').style.display = 'block'
+  signUp.style.width = '0px'
   event.preventDefault()
   let displayName = document.querySelector('#signUpName').value
   let email = document.querySelector('#signUpEmail').value
   let password = document.querySelector('#signUpPassword').value
   firebase.auth().createUserWithEmailAndPassword(email, password)
   .then(r => {
-    let val = r.user
-      db.collection('accounts').add({
-      displayName: displayName,
-      email: val.email,
-      uid: val.uid,
-      signUpTime: firebase.firestore.FieldValue.serverTimestamp()
-    }).then(r => {
-      console.log('User is Created')
-      document.querySelector('#signUpFeedback').innerText = 'Now You can Login 😃'
-      document.querySelector('#signUpFeedback').style.color = 'lightblue'
-      document.querySelector('#signUpFeedback').style.textAlign = 'center'
-    })
+    console.log('User is Created')
+    document.querySelector('#signUpFeedback').innerText = 'Wait a Sec'
+    document.querySelector('#signUpFeedback').style.textAlign = 'center'
   }).catch(e => {
     console.log('Error Occured in signUp: ', e)
     document.querySelector('#signUpFeedback').innerText = e.message
@@ -81,5 +74,24 @@ document.querySelector('#signInForm').addEventListener('submit', event => {
     document.querySelector('#signInFeedback').style.color = 'red'
     document.querySelector('#signInFeedback').style.textAlign = 'center'
     document.querySelector('#signInFeedback').style.marginBottom = '1em'
+  })
+})
+
+
+document.querySelector('#loginWithGoogle').addEventListener('click', e => {
+  console.log(e)
+  let provider = new firebase.auth.GoogleAuthProvider()
+  firebase.auth().signInWithRedirect(provider)  
+  .then(r => {
+    console.log('The r', r)
+    let val = r.user
+    db.collection('accounts').add({
+      displayName: val.displayName,
+      email: val.email,
+      uid: val.uid,
+      signUpTime: firebase.firestore.FieldValue.serverTimestamp()
+    })
+  }).catch(e => {
+    console.log('Error Occured while login with google', e)
   })
 })

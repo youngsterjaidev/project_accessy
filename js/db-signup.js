@@ -13,15 +13,17 @@ firebase.initializeApp(firebaseConfig);
 
 const auth = firebase.auth()
 const db = firebase.firestore()
+let signUpForm = document.getElementById('signUpForm')
+let loginForm = document.getElementById('loginForm')
 
-firebase.auth().onAuthStateChanged(user => {
+auth.onAuthStateChanged(user => {
   if(user) {
     console.log('Login Sucessfully')
     window.location.replace('/')
   }
 })
 
-document.querySelector('#signUpForm').addEventListener('submit', event => {
+signUpForm.addEventListener('submit', event => {
   event.preventDefault()
   let email = document.querySelector('#email').value
   let password = document.querySelector('#password').value
@@ -39,7 +41,7 @@ document.querySelector('#signUpForm').addEventListener('submit', event => {
   })
 })
 
-document.querySelector('#loginForm').addEventListener('submit', event => {
+loginForm.addEventListener('submit', event => {
   event.preventDefault()
   let loginEmail = document.querySelector('#loginEmail').value
   let loginPassword = document.querySelector('#loginPassword').value
@@ -53,6 +55,7 @@ document.querySelector('#loginForm').addEventListener('submit', event => {
 })
 
 document.querySelector('#loginWithGoogle').addEventListener('click', e => {
+  console.log(e)
   let provider = new firebase.auth.GoogleAuthProvider()
   firebase.auth().signInWithPopup(provider)
   .then(r => {

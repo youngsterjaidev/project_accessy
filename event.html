@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+        <link rel="preconnect" href="https://fonts.gstatic.com"/>
+        <link href="https://fonts.googleapis.com/css2?family=Ubuntu+Mono:wght@700&display=swap" rel="stylesheet"/>
+        <link rel="stylesheet" href="/css/event.css"/>
+        <link rel="stylesheet" href="https://cdn.iconmonstr.com/1.3.0/css/iconmonstr-iconic-font.min.css"/>
+        <title>Static Template</title>
+    </head>
+    <body>
+        <div class="navigation">
+            <a href="#" class="im im-angle-left"></a>
+            <div class="logo">Event Info</div>
+            <a href="" class="im im-question"></a>
+        </div>
+        <div class="app">
+            <div class="event">
+                <div class="event-head">
+                    <img class="event-image" src="https://firebasestorage.googleapis.com/v0/b/chat-294407.appspot.com/o/events%2Fcosco.png?alt=media&token=6ac90456-b4f1-43ac-95ba-9187844d6161">
+                </div>
+                <div class="event-body">
+                    <div class="event-content">
+                        <div class="participant-section-btn">
+                            <button type="button" class="active" id="overviewBtn">Overview</button>
+                            <button type="button" id="allParticipantBtn">All Participant</button>
+                            <button type="button" id="settingsBtn">Settings</button>
+                        </div>
+                        <div class="overview">
+                        Overview
+                        </div>
+                        <div class="all-participant">
+                            <div class="participant-heading">
+                                <div>All Participant</div>
+                                <div class="p-num">4545</div>
+                            </div>
+                            <ol class="participant">
+                                <li>Ram</li>
+                                <li>Shyam</li>
+                            </ol>
+                        </div>
+                        <div class="settings">Settings</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="https://www.gstatic.com/firebasejs/7.21.0/firebase-app.js"></script>
+        <!-- TODO: Add SDKs for Firebase products that you want to use
+   https://firebase.google.com/docs/web/setup#available-libraries -->
+        <script src="https://www.gstatic.com/firebasejs/7.21.0/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.21.0/firebase-firestore.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.21.0/firebase-database.js"></script>
+        <script src="js/init.js"></script>
+        <script src="js/event.js"></script>
+    </body>
+</html>

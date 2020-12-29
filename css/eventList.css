@@ -1,0 +1,167 @@
+body {
+    margin: 0;
+    background-color: #e5e5e5;
+    font-family: "Ubuntu Mono", monospace;
+}
+
+* {box-sizing: border-box}
+
+a {
+    text-decoration: none;
+    color: black;
+    padding: 0em 0.5em;
+}
+
+input {
+    background-color: #e5e5e5;
+    border: 1px solid #cfcfcf;
+    border-radius: 4px;
+    padding: 0.5em;
+}
+
+input:focus {
+    outline: none;
+}
+
+button {
+    padding: 1em;
+    background-color: #e5e5e5;
+    border: 1px solid #bebebe;
+    border-radius: 4px;
+    display: block;
+    color: #000;
+    width: 100%;
+    cursor: pointer;
+    outline: none;
+}
+
+button:focus {
+    background-color: #fff;
+}
+
+.navigation {
+    background-color: #fff;
+    padding: 1em;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+    position: fixed;
+    top: 0;
+}
+
+.app {
+    padding: 0.5em;
+    margin-top: 4em;
+}
+
+.card {
+    background-color: white;
+    display: flex;
+    padding: 0.2em;
+    flex-flow: row nowrap;
+    border-radius: 4px;
+    border: 1px solid #dfdfdf;
+    margin-bottom: 0.5em;    
+    box-shadow: 0 4px 23px 5px rgb(156 156 156 / 31%), 0 2px 6px rgb(229 229 229 / 98%);
+}
+
+.card-head {
+    padding: 0em 0.5em;
+}
+
+.card-image {
+    width: 4em;
+    height: 4em;
+    border-radius: 50%;
+}
+
+.card-body {
+    width: 100%;
+}
+
+.card-content {
+    font-size: 25px;
+}
+
+.card-tail {
+    display: flex;
+    align-items: center;
+}
+
+.event-details {
+    background-color: #e6e6e6;
+    position: fixed;
+    top: 0;
+    width: 0%;
+    height: 100vh;
+    overflow-y: scroll;
+    transition: all 0.5s;
+}
+
+.card-close {
+    display: flex;
+    width: 100%;
+    padding: 0.5em;
+    background-color: #fff;
+    justify-content: flex-end;
+    position: sticky;
+    top: 0;
+}
+
+.event {
+    background-color: #fff;
+    border-radius: 4px;
+    /* border: 1px solid #d7d7d7; */
+    box-shadow: 0 4px 23px 5px rgb(125 125 125 / 20%), 0 2px 6px rgb(255 255 255);
+}
+
+.event-head {
+    padding: 0.5em;
+}
+
+.event-image {
+    width: 100%;
+}
+
+.event-body {
+    padding: 0.5em;
+}
+
+.participant-section-btn {
+    background-color: #e5e5e5;
+    text-align: cener;
+    display: flex;
+    padding: 0.1em;
+}
+
+.overview {
+    display: flex;
+}
+
+.all-participant {
+    display: none;
+}
+
+.participant-heading {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5em;
+    border-bottom: 1px solid #dadada;
+}
+
+.p-num {
+    font-weight: 100;
+    color: #666666;
+    padding: 0em 1em;
+}
+
+.settings {
+    display: none;
+}
+
+
+
+
+@media screen and (max-width: 500px) {
+}

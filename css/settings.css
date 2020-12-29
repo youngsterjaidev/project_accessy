@@ -1,0 +1,80 @@
+body {
+    background: #e6e6e6;
+    margin: 0;
+}
+
+img {
+    width: 100%;
+    height: auto;
+}
+
+a {
+    text-decoration: none;
+    color: #6d6d6d;
+}
+
+.navigation {
+    display: flex;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    background: #fff;
+    padding: 1em;
+    justify-content: space-between;
+}
+
+* {box-sizing: border-box}
+
+.app {
+    padding: 4em 0 0 0;
+}
+
+.profile {
+    display: flex;
+    padding: 0.5em;
+    flex-flow: row nowrap;
+}
+
+.user-info {
+    width: 50%;
+    padding: 1em;
+    background: #fff;
+}
+
+.profile-pic {
+    width: 50%;
+    height: auto;
+    padding: 1em;
+    text-align: center;
+    background: #fff;
+}
+
+.container {
+    display: flex;
+    flex-flow: row wrap;
+    padding: 2em 0 0 0;
+}
+
+.col {
+    width: 25%;
+    height: auto;
+    padding: 0.3em;
+    background: #fff;
+    border: 1px solid #e6e6e6;
+    border-radius: 4px;
+}
+
+@media screen and (max-width: 500px) {
+    .col {
+        width: 50%;
+    }
+
+    .profile {
+        flex-flow: column-reverse nowrap;
+    }
+
+    .profile-pic, .user-info {
+        width: 100%;
+    }
+}
+

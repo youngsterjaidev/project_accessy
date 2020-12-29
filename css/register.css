@@ -1,0 +1,87 @@
+body {
+  font-family: "Ubuntu Mono", monospace;
+  background: rgb(238 242 247);
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: #000;
+}
+
+b {
+  font-size: 20px;
+}
+
+footer {
+  display: flex;
+  padding: 1em;
+}
+
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  padding: 1em;
+  background-color: #fff;
+  position: fixed;
+  width: 91%;
+  top: 0;
+  border: 1px solid #d8d8d8;
+}
+
+.container {
+  margin-top: 3em;
+}
+
+.btn {
+  padding: 1em 2em;
+  border-radius: 4px;
+  border: none;
+  background-color: #000;
+  color: #fff;
+}
+
+#event {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  flex-flow: column nowrap;
+}
+
+.feedback {
+  margin-bottom: 1em;
+}
+
+.scan-section {
+  display: flex;
+  justify-content: center;
+}
+
+form {
+  padding: 1em;
+  background: white;
+  border-radius: 4px;
+  border: 1px solid rgb(195 195 195);
+  box-shadow: 0 4px 23px 5px rgb(154 154 154 / 20%), 0 2px 6px rgb(210 210 210);
+}
+
+.form-group {
+  padding: 1em;
+}
+
+input {
+  background: transparent;
+  border: 1px solid transparent;
+  border-bottom: 1px solid rgb(199 199 199);
+  padding: 0.7em 0em;
+  width: 100%;
+}
+
+input:focus {
+  outline: 1px solid transparent;
+}
+
+#cameraBtn {
+  display: none;
+  cursor: pointer;
+}

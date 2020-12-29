@@ -3,10 +3,10 @@
   "short_name": "Accessy",
   "description": "The Simple Progressive Web Application for sharing the photos and post event",
   "theme_color": "#000",
-  "background": "#000",
-  "display": "fullscreen",
-  "scope": "/index.html",
-  "start_url": "/index.html",
+  "background_color": "#000",
+  "display": "standalone",
+  "scope": "/",
+  "start_url": "/",
   "icons": [
     {
       "src": "/images/icon-192.png",
